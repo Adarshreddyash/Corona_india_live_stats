@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Corona In India</title>
+    </script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <h3 style="color: white">Corona cases In India</h3>
+    <div class="container">
+        <div class="counting-sec">
+            <div class="inner-width">
+                <div class="col">
+                    <i class="fas fa-user-injured" style="color: crimson"></i>
+                    <div id="mypanel"><span class="count"></span></div>
+                    <p>Cases</p>
+                </div>
+                <div class="col">
+                    <i class="fas fa-skull" style="color: orangered"></i>
+                    <div id="d"><span class="count"></span></div>
+                    <p>Deaths</p>
+                </div>
+                <div class="col">
+                    <i class="fas fa-bed" style="color: rgb(122, 27, 118)"></i>
+                    <div id="ac"><span class="count"></span></div>
+                    <p>Active</p>
+                </div>
+                <div class="col">
+                    <i class="fas fa-user-check" style="color: green"></i>
+                    <div id="rc"><span class="count"></span></div>
+                    <p>recovered</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        $.getJSON('https://corona.lmao.ninja/countries/India', function(data) {
+
+            var text = `${data.cases}<br>`
+            var deathsc = `${data.deaths}`
+            var activec = `${data.active}`
+            var recoveredc = `${data.recovered}`
+            var todayCasesc = `${data.todayCases}`
+
+            $('#mypanel').html(text);
+            $('#d').html(deathsc);
+            $('#ac').html(activec);
+            $('#rc').html(recoveredc);
+
+        });
+    </script>
+    <script>
+        $('.count').each(function() {
+            $(this).prop('Counter', 0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 4000,
+                easing: 'swing',
+                step: function(now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
+        });
+    </script>
+    <div class="footer">
+        <p>
+            <p>Made with ❤ for better world by <a href="https://adarshreddyash.github.io" target="_blank">adarshreddyash</a></p>
+        </p>
+    </div>
+</body>
+
+</html>
