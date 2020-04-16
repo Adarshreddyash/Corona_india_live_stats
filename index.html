@@ -46,19 +46,17 @@
         </div>
     </div>
     <script>
-        $.getJSON('https://corona.lmao.ninja/countries/India', function(data) {
+     $.getJSON('https://corona.lmao.ninja/countries/India', function(data) {
+     var text = `${data.cases}<br>`
+     var deathsc = `${data.deaths}`
+     var activec = `${data.active}`
+     var recoveredc = `${data.recovered}`
+     var todayCasesc = `${data.todayCases}`
 
-            var text = `${data.cases}<br>`
-            var deathsc = `${data.deaths}`
-            var activec = `${data.active}`
-            var recoveredc = `${data.recovered}`
-            var todayCasesc = `${data.todayCases}`
-
-            $('#mypanel').html(text);
-            $('#d').html(deathsc);
-            $('#ac').html(activec);
-            $('#rc').html(recoveredc);
-
+     $('#mypanel').html(text);
+     $('#d').html(deathsc);
+     $('#ac').html(activec);
+     $('#rc').html(recoveredc);
         });
     </script>
     <script>
